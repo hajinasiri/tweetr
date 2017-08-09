@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,28 +7,80 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <!-- font Roboto condenced from google -->
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700" rel="stylesheet">
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
 
+
+
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
-      <img class="logo" src="/images/bird.png" width="80px" height="80px">
+      <img class="logo" src="/images/bird.png" >
       <span class="header">Tweeter</span>
     </nav>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <section class="new-tweet">
+        <h2 style="float: left">Compose Tweet</h2>
+        <hr class="hr">
+        <form action="/tweets" method="post">
+          <textarea
+            placeholder= "What are you humming about?"
+            name="text"
+            rows="4"
+            style="width:100%; padding-top:10px; padding-left:10px"
+          ></textarea>
+          <input type="submit" value="Tweet" style="float: left">
+          <span class="counter" style="float: right">140</span>
+        </form>
+      </section>
+      <section class="whole-container">
+        <section class="old-tweets">
+
+        <!--below is the old tweets in the form of articles-->
+          <article>
+            <header>
+              <img src="https://img.buzzfeed.com/buzzfeed-static/static/2017-03/31/13/enhanced/buzzfeed-prod-fastlane-02/original-grid-image-14740-1490981786-4.jpg?crop=590:590;5,0&downsize=715:*&output-format=auto&output-quality=auto" >
+              <h2 >Bill Fields</h2>
+              <h4>@MrFields</h4>
+            </header>
+            <p>Little tweet here</p>
+            <hr>
+            <footer>
+            <span>Wed Jul 6 2017 </span>
+            <div class="icons">
+              <i class="fa fa-flag" aria-hidden="true"></i>
+              <i class="fa fa-heart" aria-hidden="true"></i>
+              <i class="fa fa-retweet" aria-hidden="true"></i>
+            </div>
+
+            </footer>
+          </article>
+          <!--above is the old tweets in the form of articles -->
+
+        </section>
+      </section>
     </main>
+
 
   </body>
 </html>

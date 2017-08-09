@@ -15,9 +15,42 @@ html {
  */
 
 body {
+  font-family: 'Roboto Condensed', sans-serif;
   margin: 0;
   color: #244751;
   background-color: #eee;
+
+
+}
+body .container{
+  /*centering the block*/
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 140px;
+  font-family: 'Roboto Condensed', sans-serif;
+  display: block;
+  width: 450px;
+
+
+
+  background-color: white;
+  border-radius:10px;
+
+
+}
+
+body .container .new-tweet {
+  padding-right: 2em;
+  padding-left: 2em;
+  padding-bottom: 2em;
+  text-align: center;
+}
+
+body .container .new-tweet .hr{
+  width: 100%;
+  float: left;
+  margin-top: -8px;
+  margin-bottom: 20px;
 }
 
 /*

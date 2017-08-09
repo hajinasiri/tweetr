@@ -1,0 +1,70 @@
+body .container{
+  bacground-color:blue;
+}
+
+body .container .new-tweet{
+
+   padding-right: 2em;
+    padding-left: 2em;
+    text-align: center;
+    padding-bottom: 2em;
+
+}
+body .container .new-tweet .hr{
+  width: 100%;
+  float: left;
+  margin-top: -17px;
+  margin-bottom: 20px;
+}
+
+body .container .old-tweets {
+  opacity: 0.5;
+  margin-top:20px;
+  background-color:#b8c7ea;
+  padding-top:10px;
+  padding-left:10px;
+  padding-bottom:10px;
+  padding-right:10px;
+  border-radius: 10px;
+  border:solid;
+  border-width:1px;
+}
+body .container .old-tweets:hover {
+  opacity: 1;
+}
+
+body .container .old-tweets img{
+  width:70px;
+}
+
+body .container .old-tweets h2 {
+   display:inline;
+   margin-left:5px;
+}
+
+body .container .old-tweets h4 {
+   float:right;
+   margin-top:3px;
+   display:inline;
+}
+body .container .old-tweets p {
+  margin-left: 10px;
+}
+body .container .old-tweets hr {
+  size:100%;
+
+}
+body .container .old-tweets footer {
+  display:inline;
+
+}
+
+.icons {
+   visibility: hidden;
+  display: inline-block;
+  float:right;
+}
+
+body .container .old-tweets:hover .icons {
+  visibility: visible;
+}
