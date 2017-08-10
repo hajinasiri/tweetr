@@ -13,11 +13,11 @@ The page shows the date that each tweet was sent accurately.
 However users can't login separately and everybody can send tweets and see all the tweets, the webpage has a potential for adding this feature. For now a random username gets generated and shown for each tweet.
 
 ## ScreenShots
-- ![The openning view](https://github.com/hajinasiri/tweetr/blob/master/docs/Openning%20view.png?raw=true)
-- ![When the tweets slide up and cover the text input area](https://github.com/hajinasiri/tweetr/blob/master/docs/Slided%20up%20view.png?raw=true)
- - ![When user hovers over a tweet](https://github.com/hajinasiri/tweetr/blob/master/docs/Hover%20view.png?raw=true)
- - ![When user tries to submit an empty text](https://github.com/hajinasiri/tweetr/blob/master/docs/When%20the%20text%20is%20empty.png?raw=true)
- - ![When user tries to tweet a text bigger than 140 characters](https://github.com/hajinasiri/tweetr/blob/master/docs/When%20the%20text%20is%20too%20big.png?raw=true)
+- !["The openning view"](https://github.com/hajinasiri/tweetr/blob/master/docs/Openning%20view.png?raw=true)
+- !["When the tweets slide up and cover the text input area"](https://github.com/hajinasiri/tweetr/blob/master/docs/Slided%20up%20view.png?raw=true)
+ - !["When user hovers over a tweet"](https://github.com/hajinasiri/tweetr/blob/master/docs/Hover%20view.png?raw=true)
+ - !["When user tries to submit an empty text"](https://github.com/hajinasiri/tweetr/blob/master/docs/When%20the%20text%20is%20empty.png?raw=true)
+ - !["When user tries to tweet a text bigger than 140 characters"](https://github.com/hajinasiri/tweetr/blob/master/docs/When%20the%20text%20is%20too%20big.png?raw=true)
 
 ## Dependencies
 
