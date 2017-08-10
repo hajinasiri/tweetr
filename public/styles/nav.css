@@ -18,3 +18,18 @@
     font-size: 40px;
     line-height: 2;
 }
+
+#nav-bar button{
+    height: 60px;
+    width: 100px;
+
+    margin-top:10px;
+    float: right;
+    text-align: center;
+
+    background-color: white;
+    color:black;
+    border-radius: 5px;
+    box-shadow: yellow;
+    font-size: 20;
+}

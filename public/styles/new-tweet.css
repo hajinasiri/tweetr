@@ -1,5 +1,8 @@
+body {
+  color: blue;
+}
 body .container{
-  bacground-color:blue;
+  bacground-color: #b8eab8;
 }
 
 body .container .new-tweet{
@@ -20,7 +23,7 @@ body .container .new-tweet .hr{
 body .container .old-tweets {
   opacity: 0.5;
   margin-top:20px;
-  background-color:#b8c7ea;
+  background-color:#fefff5;
   padding-top:10px;
   padding-left:10px;
   padding-bottom:10px;
@@ -68,3 +71,7 @@ body .container .old-tweets footer {
 body .container .old-tweets:hover .icons {
   visibility: visible;
 }
+.fa{
+  padding:2px;
+}
+

@@ -19,6 +19,7 @@ keypress event
     /*setting the remained number of character for the counter */
     $(this).siblings('.counter').first().text(140 - l);
 
-  })
+  });
+
 });
 

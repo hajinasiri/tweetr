@@ -4,106 +4,94 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
- //this part is for
-
-
-input=
-{
-  "user": {
-    "name": "Newton",
-    "avatars": {
-      "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-      "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-      "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-    },
-    "handle": "@SirIsaac"
-  },
-  "content": {
-    "text": "If I have seen further it is by standing on the shoulders of giants"
-  },
-  "created_at": 1461116232227
-}
-
-
 $(function() {
 
 
-function createTweetElement(obj){
-  var $tweet = $("<article>");
- $tweet.addClass("old-tweets");
-  var $header = $("<header>");
-  var image= $("<img>");
+  function createTweetElement(obj){
+      //We create a new article html using the input object and add it to index.html file
+      var $tweet = $("<article class='old-tweets'>");
 
-  image.attr("src",obj.user.avatars.small);
-  $header.append(image);
+      // header section
+      var $header = $("<header>").appendTo($tweet);
 
-  var $h2 = $("<h2>");
-  $h2.text(obj.user.name);
-  $header.append($h2);
+      $("<img>").attr("src",obj.user.avatars.small).appendTo($header);
+      $("<h2>" + obj.user.name + "</h2>").appendTo($header);
+      $h4 = $("<h4>").text(obj.user.handle).appendTo($header);
+      $tweet.append($header);
+      var $par = $("<p>").text(obj.content.text).appendTo($tweet);
+      $hr = $("<hr>");
+      $tweet.append($hr);
+      var $ftr = $("<footer>");
+      var A = Number(obj["created_at"]);
+      var d = new Date(A);
+      var n = d.toDateString();
+      var $spann = $("<span>").text(n).appendTo($ftr);
+      var $divv = $("<div>").addClass("icons");
+      $("<i>").addClass("fa fa-flag").attr("aria-hidden", "true").appendTo($divv);
+      $("<i>").addClass("fa fa-heart").attr("aria-hidden", "true").appendTo($divv);
 
-  $h4 = $("<h4>");
-  $h4.text(obj.user.handle);
-  $header.append($h4);
-  $tweet.append($header);
-
-
-  var $par = $("<p>");
-  $par.text(obj.content.text);
-  $tweet.append($par);
-
-  $hr = $("<hr>");
-  $tweet.append($hr);
-
-  var $ftr = $("<footer>");
-
-
-  var $spann = $("<span>");
-
-  var A = Number(obj["created_at"]);
-  var d = new Date(A);
-  var n = d.toDateString();
-  console.log(n);
-
-  $spann.text(n);
+      var $i3 = $("<i>").addClass("fa fa-retweet").attr("aria-hidden", "true").appendTo($divv);
+      $ftr.append($divv);
+      $tweet.append($ftr);
+      return $tweet;
 
 
-  $ftr.append($spann);
+      //better way of doing this function is like below:(copying the whole html code inside spans and entering data from js in ${})
+      /*return `
+      <div class="fridge">
+        <h2>${fridge.model}</h2>
+        <p>${fridge.brand}</p>
+      </div>`;*/
+    }
+  //to show the old tweets
+  loadTweets();
 
-
-
-  var $divv = $("<div>");
-  $divv.addClass("icons");
-
-  var $i1 = $("<i>");
-  $i1.addClass("fa fa-flag");
-  $i1.attr("aria-hidden", "true");
-  $divv.append($i1);
-
-  var $i2 = $("<i>");
-  $i2.addClass("fa fa-heart");
-  $i2.attr("aria-hidden", "true");
-  $divv.append($i2);
-
-  var $i3 = $("<i>");
-  $i3.addClass("fa fa-retweet");
-  $i3.attr("aria-hidden", "true");
-  $divv.append($i3);
-
-
-  $ftr.append($divv);
-
-
-  $tweet.append($ftr);
+  //this function gets an array and for each object in that array creates an element.
+  function renderTweets(arr){
+    arr.forEach(function(item){
+      var newtweet = createTweetElement(item);
+      $(".whole-container").prepend(newtweet);
+    });
+  }
 
 
 
-  return $tweet;
-}
 
-var tweetContainer = createTweetElement(input);
+  function loadTweets(){
+    $.getJSON( "/tweets", renderTweets);//gets the data from the form in the form of JSON and runs the renderTweets function on it.
+  }
 
-$(".whole-container").append(tweetContainer);
+   $(".container .new-tweet .subform").on('submit', function(event){
+      event.preventDefault();
+
+      var form = this;
+      var inputValue = $(this).find('textarea').val();
+      //chcking if the text is empty or null
+      if(!inputValue){
+        alert("Your tweet must be a non-empty text ");
+      }else if(inputValue.length > 140){
+        alert("Your tweet must be less than 140 character");
+      }else{
+        //we are sending post request to the server and sending the serialized form data as the data in post request
+        $.ajax({
+          url: '/tweets', //post request url
+          method : 'post',
+          data: $(form).serialize() //converting the form content to an object and sending it as a data
+        }).done(function(){
+          //when post request is done, we clear the form and load all the tweets by using loadTweets function.
+          form.reset();//emptying the form to make it ready to show the whole updated database
+          loadTweets();//showing the whole updated database. this function is gonna call renderTweets and that itself is gonna call createTweetElement.
+        });
+      }
+  });
+
+   //here we are creating the event on the compose button to slidetoggle the new tweet container
+  $("#nav-bar button").on('click',function(){
+        $(".new-tweet").slideToggle();
+  })
+
+
 
 });
+
 
