@@ -52,46 +52,39 @@ $(function() {
       var newtweet = createTweetElement(item);
       $(".whole-container").prepend(newtweet);
     });
-  }
-
-
-
+  };
 
   function loadTweets(){
     $.getJSON( "/tweets", renderTweets);//gets the data from the form in the form of JSON and runs the renderTweets function on it.
   }
 
-   $(".container .new-tweet .subform").on('submit', function(event){
-      event.preventDefault();
+ $(".container .new-tweet .subform").on('submit', function(event){
+    event.preventDefault();
 
-      var form = this;
-      var inputValue = $(this).find('textarea').val();
-      //chcking if the text is empty or null
-      if(!inputValue){
-        alert("Your tweet must be a non-empty text ");
-      }else if(inputValue.length > 140){
-        alert("Your tweet must be less than 140 character");
-      }else{
-        //we are sending post request to the server and sending the serialized form data as the data in post request
-        $.ajax({
-          url: '/tweets', //post request url
-          method : 'post',
-          data: $(form).serialize() //converting the form content to an object and sending it as a data
-        }).done(function(){
-          //when post request is done, we clear the form and load all the tweets by using loadTweets function.
-          form.reset();//emptying the form to make it ready to show the whole updated database
-          loadTweets();//showing the whole updated database. this function is gonna call renderTweets and that itself is gonna call createTweetElement.
-        });
-      }
+    var form = this;
+    var inputValue = $(this).find('textarea').val();
+    //chcking if the text is empty or null
+    if(!inputValue){
+      alert("Your tweet must be a non-empty text ");
+    }else if(inputValue.length > 140){
+      alert("Your tweet must be less than 140 character");
+    }else{
+      //we are sending post request to the server and sending the serialized form data as the data in post request
+      $.ajax({
+        url: '/tweets', //post request url
+        method : 'post',
+        data: $(form).serialize() //converting the form content to an object and sending it as a data
+      }).done(function(){
+        //when post request is done, we clear the form and load all the tweets by using loadTweets function.
+        form.reset();//emptying the form to make it ready to show the whole updated database
+        loadTweets();//showing the whole updated database. this function is gonna call renderTweets and that itself is gonna call createTweetElement.
+      });
+    }
   });
-
    //here we are creating the event on the compose button to slidetoggle the new tweet container
   $("#nav-bar button").on('click',function(){
         $(".new-tweet").slideToggle();
   })
-
-
-
 });
 
 
