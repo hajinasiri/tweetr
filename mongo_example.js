@@ -1,6 +1,6 @@
 "use strict";
 
-const MongoClient = require("mongodb").MongoClient;//this line could be writte like this : const {MongoClient} = require("mongodb");
+const MongoClient = require("mongodb").MongoClient;
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 
 MongoClient.connect(MONGODB_URI, (err, db) => {

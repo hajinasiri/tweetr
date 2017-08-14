@@ -74,4 +74,7 @@ body .container .old-tweets:hover .icons {
 .fa{
   padding:2px;
 }
-
+.text{
+  /* another way to do this line is : overflow:auto*/
+  word-break: break-all;
+}
