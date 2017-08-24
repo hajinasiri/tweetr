@@ -1,6 +1,6 @@
 # Tweeter Project
 
-This project is a back to front project which uses mongodb for its database. 
+This project is a back to front project which uses mongodb for its database and was done in 3 days while I was student at Lighthouse labs.
 User interacts whith one page that has an inpurt text area for the new tweet to be written, and tweet button which submits the tweet.
 Tweets should be valid text between 1 and 140 character to be accepted. There is a number on the left bottom side of the text bar that shows 140 by default and as the user starts adding characters, it shows the number of remained characters. The number turns to negative and red color if the text exceeds 140 characters.
 If the text is empty the user recieves an alert message that reminds her that text can't be empty.
